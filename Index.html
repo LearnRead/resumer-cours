@@ -2,114 +2,286 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>ملخص السيرة النبوية – السنة الثانية للهجرة</title>
+<title>📚 ملخصات المواد الدراسية</title>
 <style>
 body {
-  margin: 0;
-  font-family: "Amiri", serif;
-  background: #f9fafb;
-  direction: rtl;
-  color: #222;
+    font-family: "Amiri", serif;
+    direction: rtl;
+    margin: 0;
+    background: #f0f4f8;
+    color: #1f2937;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
 }
+
+/* Wrapper pour sidebar + main */
+.wrapper {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    min-width: 180px;
+    max-width: 250px;
+    background: #1e3a8a;
+    color: white;
+    padding: 20px 10px;
+    box-shadow: -3px 0 8px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 12px 40px;
+    text-decoration: none;
+    margin: 5px 0;
+    border-radius: 8px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background: #2563eb;
+}
+
+/* Main content */
+.main {
+    flex-grow: 1;
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+
 header {
-  background: linear-gradient(90deg, #2563eb, #60a5fa);
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 1.5em;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+    font-size: 2em;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    color: white;
+    border-radius: 12px;
 }
-.container {
-  width: 80%;
-  margin: auto;
-  padding: 20px;
+
+/* Search box */
+#searchBox {
+    display: block;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
 }
+
+/* Sections */
 .section {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-  padding: 20px;
-  transition: transform 0.2s ease;
+    background: white;
+    border-radius: 16px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .section:hover {
-  transform: scale(1.01);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-.section h2 {
-  color: #1e3a8a;
-  cursor: pointer;
+
+.section h3 {
+    margin: 0;
+    cursor: pointer;
+    color: #2563eb;
 }
+
+/* Section content animée */
 .section-content {
-  display: none;
-  margin-top: 10px;
-  line-height: 1.8;
-  text-align: justify;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    opacity: 0;
+    padding: 0 0;
 }
-.footer {
-  text-align: center;
-  padding: 10px;
-  background: #f1f5f9;
-  color: #555;
-  font-size: 0.9em;
-  border-top: 1px solid #e5e7eb;
+
+.section-content.open {
+    max-height: 2000px;
+    opacity: 1;
+    padding: 10px 0;
+}
+
+/* Matiere content */
+.matiere-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.matiere-content.active {
+    opacity: 1;
+    max-height: 2000px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    background: #e5e7eb;
+    color: #555;
+    border-top: 1px solid #d1d5db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wrapper { flex-direction: column; }
+    .sidebar {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    .sidebar a { flex: 1; text-align: center; margin: 5px; }
+    .main { padding: 10px 15px; }
 }
 </style>
 </head>
 <body>
 
-<header>📘 ملخص السيرة النبوية – السنة الثانية للهجرة</header>
-
-<div class="container">
-
-  <div class="section">
-    <h2 onclick="toggleSection(this)">غزوة بدر الكبرى: يوم الفرقان</h2>
-    <div class="section-content">
-      <p>
-      تُستهل المادة بالحديث عن غزوة بدر الكبرى التي وقعت في السابع عشر من شهر رمضان في السنة الثانية للهجرة.
-      ويوضح الشارح أن الهدف الأولي للمسلمين بقيادة النبي صلى الله عليه وسلم لم يكن الحرب، بل اعتراض قافلة تجارية لقريش عائدة من الشام بقيادة أبي سفيان...
-      </p>
-      <p>
-      انتهت المعركة بنصر مؤزر للمسلمين وهزيمة ساحقة للمشركين، حيث قُتل منهم سبعون رجلاً من كبار زعمائهم كأبو جهل وأمية بن خلف، وأُسر سبعون آخرون.
-      سمى الله عز وجل هذا اليوم بـ "يوم الفرقان" لأنه فرق بين الحق والباطل وأظهر قوة المسلمين كدولة ناشئة يُحسب لها حساب في الجزيرة العربية.
-      </p>
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>المواد</h2>
+        <a onclick="showMatiere('Sira')" class="active">السيرة النبوية</a>
+        <a onclick="showMatiere('Nahw')">النحو</a>
+        <a onclick="showMatiere('Tawhid')">التوحيد و العقيدة</a>
+        <a onclick="showMatiere('Fikeh')">الفقه</a>
+        <a onclick="showMatiere('Tajwid')">التجويد</a>
     </div>
-  </div>
 
-  <div class="section">
-    <h2 onclick="toggleSection(this)">تشريعات وأحداث هامة في السنة الثانية للهجرة</h2>
-    <div class="section-content">
-      <ul>
-        <li><b>فرض الصيام وزكاة الفطر:</b> في شهر شعبان من السنة الثانية، فُرض صيام شهر رمضان... </li>
-        <li><b>الخلاف في فرض زكاة المال:</b> يشير الناظم إلى وجود خلاف بين العلماء حول توقيت فرض زكاة المال...</li>
-        <li><b>وفاة السيدة رقية:</b> تزامنت أحداث بدر مع مرض السيدة رقية... وتوفيت في اليوم الذي وصل فيه خبر النصر ببدر.</li>
-        <li><b>زواج السيدة فاطمة:</b> بعد عودة النبي صلى الله عليه وسلم من بدر، تقدم علي بن أبي طالب لخطبة فاطمة الزهراء.</li>
-        <li><b>إسلام العباس بن عبد المطلب:</b> كان من بين أسرى بدر، ثم أعلن إسلامه بعد المعركة.</li>
-      </ul>
+    <div class="main">
+        <header>📚 ملخصات المواد الدراسية</header>
+        <input type="text" id="searchBox" placeholder="🔍 ابحث عن كلمة في الملخص...">
+
+        <!-- Matières -->
+        <div id="Sira" class="matiere-content active">
+            <div class="section">
+                <h3 onclick="openCourse(this, 'Sira', 1)">درس 1: غزوة بدر الكبرى</h3>
+                <div class="section-content"></div>
+            </div>
+            <div class="section">
+                <h3 onclick="openCourse(this, 'Sira', 2)">درس 2: تشريعات السنة الثانية</h3>
+                <div class="section-content"></div>
+            </div>
+            <div class="section">
+                <h3 onclick="openCourse(this, 'Sira', 3)">درس 3: تشريعات السنة الثالثة</h3>
+                <div class="section-content"></div>
+            </div>
+                   <div class="section">
+                <h3 onclick="openCourse(this, 'Sira', 4)">درس 4: تشريعات السنة الرابعة</h3>
+                <div class="section-content"></div>
+            </div>
+
+        </div>
+
+        <div id="Nahw" class="matiere-content">
+            <div class="section">
+                <h3 onclick="openCourse(this, 'Nahw', 1)">درس 1: قواعد الجملة</h3>
+                <div class="section-content"></div>
+            </div>
+        </div>
+
+        <div id="Tawhid" class="matiere-content">
+            <div class="section">
+                <h3 onclick="openCourse(this, 'Tawhid', 1)">درس 1: أساسيات العقيدة</h3>
+                <div class="section-content"></div>
+            </div>
+        </div>
+
+        <div id="Fikeh" class="matiere-content">
+            <div class="section">
+                <h3 onclick="openCourse(this, 'Fikeh', 1)">درس 1: الطهارة</h3>
+                <div class="section-content"></div>
+            </div>
+        </div>
+
+        <div id="Tajwid" class="matiere-content">
+            <div class="section">
+                <h3 onclick="openCourse(this, 'Tajwid', 1)">درس 1: مخارج الحروف</h3>
+                <div class="section-content"></div>
+            </div>
+        </div>
+
     </div>
-  </div>
-
-  <div class="section">
-    <h2 onclick="toggleSection(this)">غزوة بني قينقاع</h2>
-    <div class="section-content">
-      <p>
-      بعد الانتصار في بدر، بدأ اليهود في المدينة، وخاصة بنو قينقاع، يظهرون العداء للمسلمين وينقضون العهد.
-      والسبب المباشر هو اعتداؤهم على شرف امرأة مسلمة في سوقهم، مما أدى إلى مقتل مسلم ويهودي.
-      </p>
-      <p>
-      حاصرهم النبي صلى الله عليه وسلم خمسة عشر يوماً حتى استسلموا، فأجلاهم عن المدينة بعد شفاعة عبد الله بن أبي.
-      وكانت هذه بداية سلسلة المواجهات مع القبائل اليهودية في المدينة.
-      </p>
-    </div>
-  </div>
-
 </div>
 
-<div class="footer">© 2025 موقع المذكرات الدراسية – بإعدادك 💫</div>
+<footer>© 2025 موقع المذكرات الدراسية – بإعدادك 💫</footer>
 
 <script>
-function toggleSection(el) {
-  const content = el.nextElementSibling;
-  content.style.display = content.style.display === "block" ? "none" : "block";
+// Affiche/cacher matière
+function showMatiere(id) {
+    document.querySelectorAll('.matiere-content').forEach(div => {
+        div.classList.toggle('active', div.id === id);
+    });
+    document.querySelectorAll('.sidebar a').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('onclick').includes(id));
+    });
+}
+
+// Recherche mot-clé
+document.getElementById('searchBox').addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    const visible = document.querySelector('.matiere-content.active');
+    if (!visible) return;
+    visible.querySelectorAll('.section').forEach(section => {
+        const text = section.textContent.toLowerCase();
+        section.style.display = text.includes(query) ? 'block' : 'none';
+    });
+});
+
+// Toggle + chargement dynamique avec animation
+function openCourse(el, matiere, coursNumero) {
+    const content = el.nextElementSibling;
+
+    if (content.classList.contains("open")) {
+        content.classList.remove("open");
+        setTimeout(() => content.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+        return;
+    }
+
+    if (content.innerHTML.trim() === "") {
+        const path = `${matiere}/cour${coursNumero}.html`;
+        fetch(path)
+            .then(resp => {
+                if (!resp.ok) throw new Error("ملف الدورة غير موجود");
+                return resp.text();
+            })
+            .then(html => {
+                content.innerHTML = html;
+                content.classList.add("open");
+                setTimeout(() => content.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+            })
+            .catch(err => {
+                content.innerHTML = `<p style="color:red;">خطأ في تحميل المحتوى: ${err.message}</p>`;
+                content.classList.add("open");
+            });
+    } else {
+        content.classList.add("open");
+        setTimeout(() => content.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+    }
 }
 </script>
 
